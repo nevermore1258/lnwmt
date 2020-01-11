@@ -1,5 +1,5 @@
 wget https://download.mikrotik.com/routeros/6.46.1/chr-6.46.1.img.zip -O chr.img.zip  && \
-ggunzip -c chr.img.zip > chr.img  && \
+gunzip -c chr.img.zip > chr.img  && \
 apt-get update && \
 apt install -y qemu-utils pv && \
 qemu-img convert chr.img -O qcow2 chr.qcow2 && \
