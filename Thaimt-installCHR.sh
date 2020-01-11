@@ -13,10 +13,11 @@ sleep 5 && \
 mount /dev/nbd0p2 /mnt && \
 ADDRESS=`ip addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1` && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
-PASSWORD="MT" && \
+PASSWORD="CHANGEME" && \
 echo "/ip address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
 /ip route add gateway=$GATEWAY
 /ip service disable telnet
+/user add name=admin password=mt group=full
 /user set 0 name=root password=$PASSWORD
 /ip dns set servers=1.1.1.1,1.0.0.1
 /system package update install
@@ -44,5 +45,5 @@ echo "Sleep 5 seconds (if lucky)" && \
 sleep 5 || true && \
 echo "sync disk" && \
 echo s > /proc/sysrq-trigger && \
-echo "Ok, reboot" && \
+echo "Ok, reboot Edit By.TAOATAO" && \
 echo b > /proc/sysrq-trigger
