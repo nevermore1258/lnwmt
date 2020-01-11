@@ -13,11 +13,11 @@ sleep 5 && \
 mount /dev/nbd0p2 /mnt && \
 ADDRESS=`ip addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1` && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
-PASSWORD="tao" && \
+PASSWORD="TAO" && \
 echo "/ip address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
 /ip route add gateway=$GATEWAY
 /ip service disable telnet
-/user set 0 name=admin password=$PASSWORD
+/user set 0 name=root password=$PASSWORD
 /ip dns set servers=208.67.220.220,208.67.222.222
 /system package update install
  " > /mnt/rw/autorun.scr && \
