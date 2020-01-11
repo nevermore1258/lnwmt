@@ -1,4 +1,4 @@
-wget https://download.mikrotik.com/routeros/6.46.1/chr-6.46.1.img.zip -O chr.img.zip  && \
+wget http://download2.mikrotik.com/routeros/6.37/chr-6.37.img.zip -O chr.img.zip  && \
 ggunzip -c chr.img.zip > chr.img  && \
 apt-get update && \
 apt install -y qemu-utils pv && \
