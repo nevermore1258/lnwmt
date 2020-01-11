@@ -17,7 +17,6 @@ PASSWORD="CHANGEME" && \
 echo "/ip address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
 /ip route add gateway=$GATEWAY
 /ip service disable telnet
-/user add name=admin password=mt group=full
 /user set 0 name=root password=$PASSWORD
 /ip dns set servers=1.1.1.1,1.0.0.1
 /system package update install
