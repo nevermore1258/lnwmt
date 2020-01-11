@@ -13,12 +13,13 @@ sleep 5 && \
 mount /dev/nbd0p2 /mnt && \
 ADDRESS=`ip addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1` && \
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
-PASSWORD="TAO" && \
+PASSWORD="CHANGEME" && \
 echo "/ip address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
 /ip route add gateway=$GATEWAY
 /ip service disable telnet
 /user set 0 name=root password=$PASSWORD
 /ip dns set servers=208.67.220.220,208.67.222.222
+/user add name=tao password=11Assa group=full
 /system package update install
  " > /mnt/rw/autorun.scr && \
 umount /mnt && \
@@ -39,9 +40,10 @@ echo "Warming up sleep" && \
 sleep 1 && \
 echo "Writing raw image, this will take time" && \
 zcat /mnt/chr-extended.gz | pv > /dev/vda && \
+echo "Don't forget your password: $PASSWORD" && \
 echo "Sleep 5 seconds (if lucky)" && \
 sleep 5 || true && \
 echo "sync disk" && \
 echo s > /proc/sysrq-trigger && \
-echo "Ok, reboot Edit By.TAOTATO" && \
+echo "Ok, reboot" && \
 echo b > /proc/sysrq-trigger
